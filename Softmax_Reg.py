@@ -40,7 +40,9 @@ cross_entropy = tf.reduce_mean(
 train_step = tf.train.GradientDescentOptimizer(0.5).minimize(cross_entropy)
 
 sess = tf.InteractiveSession()
-tf.global_variables_initializer().run()
+#tf.global_variables_initializer().run()
+tf.initialize_all_variables().run()
+
 # Train
 for _ in range(1000):
 	for start in range(0, train_data.shape[0], BATCH_SIZE):

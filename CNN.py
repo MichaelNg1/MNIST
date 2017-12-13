@@ -78,7 +78,9 @@ correct_prediction = tf.equal(tf.argmax(y_conv,1), tf.argmax(y_,1))
 accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
 
 sess = tf.InteractiveSession()
-tf.global_variables_initializer().run()
+#tf.global_variables_initializer().run()
+tf.initialize_all_variables().run()
+
 # Train
 for i in range(20000):
 	indices = np.random.permutation(range(train_data.shape[0]))[0:(BATCH_SIZE-1)]
